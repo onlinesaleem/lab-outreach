@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String
+  companyId Int?
+  company   Company?  @relation(fields: [companyId], references: [id])
+
+  reportCreatedBy Report[] @relation("CreatedBy")
+
+  reportUpdatedBy Report[] @relation("UpdatedBy")
+  image     String? // Optional field for profile images
+}
+
+model Company {
+  id      Int    @id @default(autoincrement())
+  name    String @unique
+  users   User[]
+  reports Report[]
+}
+
+model Report {
+  id              Int       @id @default(autoincrement())
+  patientName     String
+  patientFileNumber String   // Unique identifier for the patient's file
+  doctorName      String?    // Optional
+  testName        String
+  pdfUrl          String
+  reportCreatedOn DateTime   @default(now()) // Auto-set to the current time when created
+  reportModifiedOn DateTime? // Optional, updated when edited
+  createdById     Int        // User who created the report
+  updatedById     Int?       // User who last updated the report
+  createdBy       User      @relation("CreatedBy", fields: [createdById], references: [id])
+  updatedBy       User?      @relation("UpdatedBy", fields: [updatedById], references: [id])
+  companyId       Int
+  company         Company    @relation(fields: [companyId], references: [id])
+}

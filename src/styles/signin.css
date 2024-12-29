@@ -1,0 +1,118 @@
+/* Container */
+.signin-container {
+    display: flex;
+    min-height: 100vh;
+    background: #f7f9fc;
+  }
+  
+  /* Sidebar */
+  .signin-sidebar {
+    flex: 1;
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+    color: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .sidebar-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar-description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Main Content */
+  .signin-main {
+    flex: 2;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+  }
+  
+  .signin-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .signin-header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .signin-header p {
+    font-size: 1rem;
+    color: #6b7280;
+  }
+  
+  /* Sign-In Form */
+  .signin-form {
+    width: 100%;
+    max-width: 400px;
+    background: #f9fafb;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .signin-button {
+    width: 100%;
+    padding: 0.75rem;
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .signin-button:hover {
+    background: #2563eb;
+  }
+  
+  .signin-button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #3b82f6;
+  }
+  
+  button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
